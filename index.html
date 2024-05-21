@@ -18,7 +18,7 @@
 
         function init() {
             console.log('Initializing scene');
-            
+
             // Scene
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0xcccccc);
@@ -50,7 +50,7 @@
 
             // Load Model
             const loader = new THREE.GLTFLoader();
-            loader.load('"C:\Users\Nina\Desktop\website blender\dogblender.glb"', function(gltf) {
+            loader.load('C:\Users\Nina\Desktop\website blender\dogblender.glb', function(gltf) {
                 model = gltf.scene;
                 scene.add(model);
                 console.log('Model loaded successfully');
@@ -72,4 +72,10 @@
         function animate() {
             requestAnimationFrame(animate);
             controls.update();
-            renderer.render
+            renderer.render(scene, camera);
+        }
+
+        init();
+    </script>
+</body>
+</html>
