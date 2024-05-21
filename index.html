@@ -38,12 +38,13 @@
 
             // Load Model
             const loader = new THREE.GLTFLoader();
-            loader.load('"C:\Users\Nina\Desktop\website blender\dogblender.glb"', function(gltf) {
+            loader.load('C:\Users\Nina\Desktop\website blender\dogblender.glb', function(gltf) {
                 model = gltf.scene;
                 scene.add(model);
+                console.log('Model loaded successfully');
                 animate();
             }, undefined, function(error) {
-                console.error(error);
+                console.error('An error occurred loading the model', error);
             });
 
             // Resize Event
