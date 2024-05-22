@@ -9,19 +9,6 @@
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Website Color</title>
-    <style>
-        body {
-            background-color: #f0f0f0; /* Change this to your desired background color */
-            color: #333333;           /* Change this to your desired text color */
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: #4CAF50;           /* Change this to your desired heading color */
-        }
-        p {
-            color: #000000;           /* Change this to your desired paragraph text color */
-        }
-        /* Add more styles as needed */
-    </style>
   </head>
   <body>
 <H2>Nina's Low Poly Hund</H2>
@@ -34,6 +21,9 @@
                 ar-modes="webxr scene-viewer quick-look" 
                 environment-image="neutral">   
   </model-viewer>
+    body {
+  background-image: url("tulipbackground.jpg");
+}
  <script>
         async function checkARCoreCompatibility() {
             const modelViewer = document.getElementById('model-viewer');
