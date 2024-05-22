@@ -9,6 +9,14 @@
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Website Color</title>
+    <style>
+        body {
+            background-image: url('tulipbackground.jpg'); /* Path to your image */
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center center; /* Center the image */
+        }
+    </style>
   </head>
   <body>
 <H2>Nina's Low Poly Hund</H2>
@@ -21,8 +29,6 @@
                 ar-modes="webxr scene-viewer quick-look" 
                 environment-image="neutral">   
   </model-viewer>
-    body {
-  background-image: url("tulipbackground.jpg");
 }
  <script>
         async function checkARCoreCompatibility() {
