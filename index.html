@@ -1,47 +1,46 @@
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina's Low Poly Hund</title>
+    <title>3D Model Viewer with Background Color Changer</title>
+    <!-- Include the model-viewer script -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-      <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Website Color</title>
     <style>
         body {
-            background-image: url('tulipbackground.jpg'); /* Path to your image */
-            background-size: cover; /* Cover the entire area */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-position: center center; /* Center the image */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        model-viewer {
+            width: 80%;
+            height: 80%;
+            border: 1px solid #ccc;
+        }
+        .controls {
+            margin-top: 20px;
         }
     </style>
-  </head>
-  <body>
-<H2>Nina's Low Poly Hund</H2>
-  <model-viewer src="dogblender.glb"
-                ios-src="dogblender.usdc"
-                alt="Nina's Hund"
-                ar
-                auto-rotate
-                camera-controls
-                ar-modes="webxr scene-viewer quick-look" 
-                environment-image="neutral">   
-  </model-viewer>
-}
- <script>
-        async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
-        }
+</head>
+<body>
+    <model-viewer id="modelViewer" src="path-to-your-3d-model.glb" alt="A 3D model" auto-rotate camera-controls></model-viewer>
 
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+    <div class="controls">
+        <label for="bgColorPicker">Change Background Color: </label>
+        <input type="color" id="bgColorPicker" name="bgColorPicker" value="#ffffff">
+    </div>
+
+    <script>
+        const modelViewer = document.getElementById('modelViewer');
+        const bgColorPicker = document.getElementById('bgColorPicker');
+
+        bgColorPicker.addEventListener('input', (event) => {
+            modelViewer.style.backgroundColor = event.target.value;
+        });
     </script>
-   </body>
+</body>
 </html>
