@@ -3,76 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model Viewer</title>
+    <title>Nina's 3D Model Viewer</title>
     <style>
         body {
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #e0e0e0; /* Change this to desired background color */
+            overflow: hidden;
+            background-color: #E9E9FF; /* Change the background color here */
         }
         #title {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white; /* Change title color here */
             font-size: 24px;
-            margin-bottom: 20px;
-        }
-        #viewer {
-            width: 80%;
-            height: 80%;
+            z-index: 10;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://rawcdn.githack.com/AR-js-org/AR.js/1.7.6/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
-    <div id="title">Nina's 3D Model Viewer</div>
-    <div id="viewer"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <div id="title">My AR 3D Model Viewer</div>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <a-marker preset="hiro">
+            <a-entity id="model" gltf-model="3Dbedroom.glb" scale="0.5 0.5 0.5"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+
     <script>
-        // Scene, camera, renderer setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth * 0.8, window.innerHeight * 0.8);
-        renderer.setClearColor(0xffffff); // Change this to desired background color
-        document.getElementById('viewer').appendChild(renderer.domElement);
-
-        // Add lighting
-        const light = new THREE.AmbientLight(0x404040); // Soft white light
-        scene.add(light);
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(1, 1, 1).normalize();
-        scene.add(directionalLight);
-
-        // Load 3D model
-        const loader = new THREE.GLTFLoader();
-        loader.load('3Dbedroom.glb', function (gltf) {
-            scene.add(gltf.scene);
-            render();
-        }, undefined, function (error) {
-            console.error(error);
-        });
-
-        // Camera position
-        camera.position.z = 5;
-
-        // Render loop
-        function render() {
-            requestAnimationFrame(render);
-            renderer.render(scene, camera);
-        }
-
-        render();
-
-        // Responsive resizing
-        window.addEventListener('resize', () => {
-            const width = window.innerWidth * 0.8;
-            const height = window.innerHeight * 0.8;
-            renderer.setSize(width, height);
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-        });
+        // Additional JavaScript if needed
     </script>
 </body>
 </html>
