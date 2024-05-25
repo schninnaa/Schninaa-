@@ -8,7 +8,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-color: #E9E9FF; /* Change the background color here */
+            background-color: ##FBC3FF; /* Change the background color here */
         }
         #title {
             position: absolute;
@@ -23,10 +23,10 @@
     <script src="https://rawcdn.githack.com/AR-js-org/AR.js/1.7.6/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
-    <div id="title">My AR 3D Model Viewer</div>
+    <div id="title">Nina's AR 3D Model Viewer</div>
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <a-marker preset="hiro">
-            <a-entity id="3Dbedroom" gltf-model="3Dbedroom.glb" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity id="model" gltf-model="3Dbedroom.glb" scale="0.5 0.5 0.5"></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
