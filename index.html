@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina's 3D cozy room</title>
+    <title>The cozy bedroom</title>
     <style>
         body {
             margin: 0;
             overflow: hidden;
             background-color: #B3F2AB; /* Default background color */
+            font-family: Arial, sans-serif;
         }
         #title {
             position: absolute;
             top: 10px;
             left: 10px;
             color: white; /* Default title color */
-            font-size: 24px;
+            font-size: 30px;
             z-index: 10;
         }
         #controls {
@@ -26,6 +27,10 @@
         }
         label, input {
             color: white; /* Default label and input color */
+            margin: 5px 0;
+        }
+        #bgColorInput {
+            margin-top: 10px;
         }
     </style>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
@@ -33,15 +38,14 @@
 <body>
     <div id="title">My 3D Model Viewer</div>
     <div id="controls">
-        <label for="titleInput">Title:</label>
-        <input type="text" id="titleInput" placeholder="Enter title">
-        <br>
         <label for="bgColorInput">Background Color:</label>
         <input type="color" id="bgColorInput" value="#000000">
     </div>
     <a-scene embedded>
-        <a-entity id="model" position="0 1.6 -3" rotation="0 45 0" scale="0.5 0.5 0.5" gltf-model="url(3Dbedroom.glb)">
-        </a-entity>
+        <a-assets>
+            <a-asset-item id="model" src="3Dbedroom.glb"></a-asset-item>
+        </a-assets>
+        <a-entity gltf-model="#model" position="0 1.6 -3" rotation="0 45 0" scale="0.5 0.5 0.5"></a-entity>
         <a-camera></a-camera>
     </a-scene>
 
