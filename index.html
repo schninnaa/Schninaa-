@@ -8,15 +8,25 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-color: ##FBC3FF; /* Change the background color here */
+            background-color: #FFC3F1 
+; /* Default background color */
         }
         #title {
             position: absolute;
             top: 10px;
             left: 10px;
-            color: white; /* Change title color here */
+            color: black; /* Default title color */
             font-size: 24px;
             z-index: 10;
+        }
+        #controls {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            z-index: 10;
+        }
+        label, input {
+            color: white; /* Default label and input color */
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -24,15 +34,30 @@
 </head>
 <body>
     <div id="title">Nina's AR 3D Model Viewer</div>
+    <div id="controls">
+        <label for="titleInput">Title:</label>
+        <input type="text" id="titleInput" placeholder="Enter title">
+        <br>
+        <label for="bgColorInput">Background Color:</label>
+        <input type="color" id="bgColorInput" value="#FFC3F1 
+">
+    </div>
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <a-marker preset="hiro">
-            <a-entity id="model" gltf-model="3Dbedroom.glb" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity id="model" gltf-model="3Dbedroom.glb)" scale="0.5 0.5 0.5"></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
 
     <script>
-        // Additional JavaScript if needed
+        // JavaScript to update title and background color
+        document.getElementById('titleInput').addEventListener('input', function() {
+            document.getElementById('title').innerText = this.value;
+        });
+
+        document.getElementById('bgColorInput').addEventListener('input', function() {
+            document.body.style.backgroundColor = this.value;
+        });
     </script>
 </body>
 </html>
