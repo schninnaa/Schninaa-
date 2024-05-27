@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The masks</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      model-viewer {
-          width: 100%; /* 100% of the parent's width */
-          height: 80vh; /* 80% of the viewport height */
-          display: block;
-          margin: auto;
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The masks</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    model-viewer {
+      width: 100%; /* 100% of the parent's width */
+      height: 80vh; /* 80% of the viewport height */
+      display: block;
+      margin: auto;
+    }
+    body {
+      background-image: url('aura.jpg'); /* Set custom background image */
+      background-size: cover; /* Ensure the image covers the entire background */
+      background-position: center; /* Center the background image */
+      color: white; /* Change text color to white */
+      text-align: center; /* Center the text */
+      font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
+      font-size: 24px; /* Increase font size */
+    }
+    h1 {
+      font-family: 'Arial Black', sans-serif; /* Ensure heading uses Arial Black font */
+      font-size: 36px; /* Increase heading font size */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color */
+      border-radius: 15px; /* Rounded corners */
+      padding: 10px; /* Padding inside the element */
+      display: inline-block; /* Ensure the background doesn't extend the full width */
+    }
+  </style>
+</head>
+<body>
+  <h1>Crumbling Personas</h1>
+  <model-viewer 
+    id="model-viewer"
+    src="masken.glb"
+    ios-src="masken.usdz"
+    alt="Nina's 3D room"
+    ar
+    ar-modes="webxr scene-viewer quick-look" 
+    environment-image="neutral" 
+    auto-rotate
+    camera-controls
+    animation-name="CubeAction" 
+    animation-loop>
+  </model-viewer>
+  <script>
+    async function checkARCoreCompatibility() {
+      const modelViewer = document.getElementById('model-viewer');
+      const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+      if (!isARCoreSupported) {
+        modelViewer.removeAttribute('ar');
+        modelViewer.removeAttribute('ar-modes');
+        alert('Your device is not compatible with AR features. You can still view the 3D model.');
       }
-      body {
-        background-image: url('aura.jpg'); /* Set custom background image */
-        background-size: cover; /* Ensure the image covers the entire background */
-        background-position: center; /* Center the background image */
-        color: white; /* Change text color to white */
-        text-align: center; /* Center the text */
-        font-family: 'Didot', serif; /* Change font family to Didot */
-        font-size: 24px; /* Increase font size */
-      }
-      h1 {
-        font-family: 'Didot', serif; /* Ensure heading uses Didot font */
-        font-size: 36px; /* Increase heading font size */
-      }
-    </style>
-  </head>
-  <body>
-
-    <h1>Crumbling Personas</h1>
-    <model-viewer 
-                  id="model-viewer"
-                  src="masken.glb"
-                  ios-src="masken.usdz"
-                  alt="Nina's 3D room"
-                  ar
-                  ar-modes="webxr scene-viewer quick-look" 
-                  environment-image="neutral" 
-                  auto-rotate
-                  camera-controls
-                  animation-name="CubeAction" 
-                  animation-loop>  
-    </model-viewer>
-    <script>
-      async function checkARCoreCompatibility() {
-          const modelViewer = document.getElementById('model-viewer');
-          const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-          if (!isARCoreSupported) {
-              modelViewer.removeAttribute('ar');
-              modelViewer.removeAttribute('ar-modes');
-              alert('Your device is not compatible with AR features. You can still view the 3D model.');
-          }
-      }
-
-      document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-    </script>
-  </body>
+    }
+    document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+  </script>
+</body>
 </html>
