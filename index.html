@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,47 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The masks</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-     <style>
-        model-viewer {
-            width: 100%; /* 100% of the parent's width */
-            height: 80vh; /* 80% of the viewport height */
-            display: block;
-            margin: auto;
-        }
-       body {
-  background-color: DarkSlateGray;
-}
-
+    <style>
+      model-viewer {
+          width: 100%; /* 100% of the parent's width */
+          height: 80vh; /* 80% of the viewport height */
+          display: block;
+          margin: auto;
+      }
+      body {
+        background-color: DarkSlateGray;
+        color: white; /* Change text color to white */
+        text-align: center; /* Center the text */
+      }
     </style>
   </head>
   <body>
 
-<H1>Crumbling Personas</H2>
-  <model-viewer 
-                id="model-viewer"
-                src="masken.glb"
-                ios-src="masken.usdz"
-                alt="Nina's 3D room"
-                ar
-                ar-modes="webxr scene-viewer quick-look" 
-                environment-image="neutral" 
-                auto-rotate
-                camera-controls
-                animation-name="CubeAction" 
-                animation-loop>  
-  </model-viewer>
- <script>
-        async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
-        }
+    <h1>Crumbling Personas</h1>
+    <model-viewer 
+                  id="model-viewer"
+                  src="masken.glb"
+                  ios-src="masken.usdz"
+                  alt="Nina's 3D room"
+                  ar
+                  ar-modes="webxr scene-viewer quick-look" 
+                  environment-image="neutral" 
+                  auto-rotate
+                  camera-controls
+                  animation-name="CubeAction" 
+                  animation-loop>  
+    </model-viewer>
+    <script>
+      async function checkARCoreCompatibility() {
+          const modelViewer = document.getElementById('model-viewer');
+          const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+          if (!isARCoreSupported) {
+              modelViewer.removeAttribute('ar');
+              modelViewer.removeAttribute('ar-modes');
+              alert('Your device is not compatible with AR features. You can still view the 3D model.');
+          }
+      }
 
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+      document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
     </script>
-   </body>
+  </body>
 </html>
