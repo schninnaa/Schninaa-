@@ -7,36 +7,55 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     model-viewer {
-      width: 100%; /* 100% of the parent's width */
-      height: 70vh; /* 80% of the viewport height */
+      width: 100%;
+      height: 70vh;
       display: block;
       margin: auto;
     }
     body {
-      background-image: url('swirl.jpg'); /* Set custom background image */
-      background-size: cover; /* Ensure the image covers the entire background */
-      background-position: center; /* Center the background image */
-      color: DarkOliveGreen; /* Change text color to Dark Olive Green */
-      text-align: center; /* Center the text */
-      font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
-      font-size: 24px; /* Increase font size */
+      background-image: url('swirl.jpg');
+      background-size: cover;
+      background-position: center;
+      color: DarkOliveGreen;
+      text-align: center;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 24px;
+      position: relative; /* Added for positioning the flying images */
+      overflow: hidden; /* Ensure the flying images don't cause scrollbars */
     }
     h1 {
-      font-family: 'Arial Black', sans-serif; /* Ensure heading uses Arial Black font */
-      font-size: 28px; /* Increase heading font size */
-      background-color: rgba(255, 255, 255, 1); /* Semi-transparent background color */
-      border-radius: 100px; /* Rounded corners */
-      padding: 10px; /* Padding inside the element */
+      font-family: 'Arial Black', sans-serif;
+      font-size: 28px;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 100px;
+      padding: 10px;
       margin-top: 25px;
       margin-bottom: 5px;
-      display: inline-block; /* Ensure the background doesn't extend the full width */
+      display: inline-block;
     }
     h2 {
-      font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
-      font-size: 15px; /* Smaller font size for the second heading */
+      font-family: 'Arial Black', sans-serif;
+      font-size: 15px;
       margin-top: 3px;
       margin-bottom: 5px;
-      color: white; /* Change text color to white */
+      color: white;
+    }
+    .floating-image {
+      position: absolute;
+      width: 50px; /* Size of the PNG images */
+      height: 50px;
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-50vh) translateX(50vw) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+      }
     }
   </style>
 </head>
@@ -56,6 +75,9 @@
     animation-name="CubeAction" 
     animation-loop>
   </model-viewer>
+  <img src="sakura.png" class="floating-image" style="top: 10%; left: 10%;">
+  <img src="sakura.png" class="floating-image" style="top: 20%; left: 70%;">
+  <img src="sakura.png" class="floating-image" style="top: 50%; left: 40%;">
   <script>
     async function checkARCoreCompatibility() {
       const modelViewer = document.getElementById('model-viewer');
