@@ -25,6 +25,7 @@
     }
     .content {
       z-index: 1;
+      transform: translateY(-10%); /* Move content higher */
     }
     h1 {
       font-family: 'Press Start 2P', cursive; /* Old-school computer font */
@@ -42,7 +43,7 @@
       display: inline-block; /* Ensure the background doesn't extend the full width */
       border: none; /* Remove background */
     }
-    h2, h3 {
+    h2 {
       font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
       font-size: 15px; /* Font size for the headings */
       margin-top: 3px;
@@ -60,6 +61,7 @@
       height: 50vh; /* 50% of the viewport height */
       display: block;
       margin: auto;
+      display: none; /* Hide initially */
     }
     .floating-image {
       position: absolute;
@@ -89,12 +91,28 @@
         height: 100px; /* Smaller size for mobile */
       }
     }
+    .ar-button-image {
+      cursor: pointer;
+      width: 200px; /* Adjust the width as needed */
+      height: auto;
+      margin-top: 20px;
+    }
+    .link-button-image {
+      cursor: pointer;
+      width: 200px; /* Adjust the width as needed */
+      height: auto;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="content">
     <h1>Crumbling Personas</h1>
     <h2>Model by @schninnaa</h2>
+
+    <!-- AR Viewer Image Button -->
+    <img src="mouse.png" class="ar-button-image" alt="AR Viewer Button" onclick="toggleARViewer()">
+
     <model-viewer 
       id="model-viewer"
       src="maske1.glb"
@@ -110,11 +128,13 @@
     </model-viewer>
 
     <!-- Add floating images -->
-    <img src="fireplane.png" class="floating-image image1" />
-    <img src="mouse.png" class="floating-image image2" />
+    <img src="bubble.png" class="floating-image image1" />
+    <img src="bubble.png" class="floating-image image2" />
 
-    <!-- New third text element -->
-    <h3>Another text example</h3>
+    <!-- New third text element replaced with an image link -->
+    <a href="https://www.instagram.com/schninnaa/" target="_blank">
+      <img src="insta.png" class="link-button-image" alt="Instagram Link Button">
+    </a>
   </div>
 
   <script>
@@ -128,6 +148,15 @@
       }
     }
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+
+    function toggleARViewer() {
+      const modelViewer = document.getElementById('model-viewer');
+      if (modelViewer.style.display === 'none') {
+        modelViewer.style.display = 'block';
+      } else {
+        modelViewer.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>
