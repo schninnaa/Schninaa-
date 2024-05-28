@@ -41,14 +41,19 @@
       margin-bottom: 5px;
       display: inline-block; /* Ensure the background doesn't extend the full width */
       border: none; /* Remove background */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow effect */
     }
-    h2 {
+    h2, h3 {
       font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
-      font-size: 15px; /* Smaller font size for the second heading */
+      font-size: 15px; /* Font size for the headings */
       margin-top: 3px;
       margin-bottom: 5px;
-      color: white; /* Change text color to white */
+      color: #A9A9A9; /* Dark grey color */
+      background: linear-gradient(90deg, #A9A9A9, #696969, #A9A9A9); /* Shiny effect in dark grey */
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shine 2s infinite linear;
     }
     model-viewer {
       width: 100%; /* 100% of the parent's width */
@@ -109,7 +114,7 @@
     <img src="paperplane.png" class="floating-image image2" />
 
     <!-- New third text element -->
-    <h2>follow me on instagram</h2>
+    <h3>Another text example</h3>
   </div>
 
   <script>
