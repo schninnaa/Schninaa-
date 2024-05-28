@@ -9,9 +9,17 @@
   <style>
     model-viewer {
       width: 100%; /* 100% of the parent's width */
-      height: 70vh; /* 80% of the viewport height */
+      height: 70vh; /* 70% of the viewport height */
       display: block;
       margin: auto;
+    }
+    @media (max-width: 768px) {
+      model-viewer {
+        height: 50vh; /* Make the model viewer smaller on mobile devices */
+      }
+      .ar-button {
+        display: none; /* Hide the AR button on mobile devices */
+      }
     }
     body {
       background-image: url('cyberbg.png'); /* Set custom background image */
