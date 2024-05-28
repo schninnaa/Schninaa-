@@ -20,6 +20,7 @@
       text-align: center; /* Center the text */
       font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
       font-size: 24px; /* Increase font size */
+      overflow: hidden; /* Prevent scrollbars from appearing */
     }
     h1 {
       font-family: 'Arial Black', sans-serif; /* Ensure heading uses Arial Black font */
@@ -43,6 +44,25 @@
       width: 50px; /* Adjust size as needed */
       height: 50px; /* Adjust size as needed */
       pointer-events: none; /* Ensure they don't interfere with user interactions */
+      animation: float 5s infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(100px, -100px);
+      }
+      50% {
+        transform: translate(200px, 0);
+      }
+      75% {
+        transform: translate(100px, 100px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
     }
   </style>
 </head>
@@ -64,9 +84,9 @@
   </model-viewer>
 
   <!-- Add floating images -->
-  <img src="sakura.png" class="floating-image" id="floating-image1" />
-  <img src="sakura.png" class="floating-image" id="floating-image2" />
-  <img src="sakura.png" class="floating-image" id="floating-image3" />
+  <img src="bubble.png" class="floating-image" id="floating-image1" />
+  <img src="bubble.png" class="floating-image" id="floating-image2" />
+  <img src="bubble.png" class="floating-image" id="floating-image3" />
 
   <script>
     async function checkARCoreCompatibility() {
@@ -80,20 +100,21 @@
     }
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
 
-    // Function to animate images
-    function animateImages() {
-      const images = document.querySelectorAll('.floating-image');
-      images.forEach(image => {
-        image.style.left = `${Math.random() * window.innerWidth}px`;
-        image.style.top = `${Math.random() * window.innerHeight}px`;
-      });
+    function getRandomPosition() {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      return { x, y };
     }
 
-    // Initial animation
-    animateImages();
+    function animateImage(image) {
+      const { x, y } = getRandomPosition();
+      image.style.transform = `translate(${x}px, ${y}px)`;
+    }
 
-    // Repeat animation every 2 seconds
-    setInterval(animateImages, 2000);
+    const images = document.querySelectorAll('.floating-image');
+    images.forEach(image => {
+      setInterval(() => animateImage(image), 2000);
+    });
   </script>
 </body>
 </html>
