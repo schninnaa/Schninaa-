@@ -24,7 +24,7 @@
     }
     h1 {
       font-family: 'Press Start 2P', cursive; /* Old-school computer font */
-      font-size: 36px; /* Increase heading font size */
+      font-size: 48px; /* Increase heading font size */
       color: #fff; /* White text color */
       background: linear-gradient(90deg, #fff, #e0e0e0, #fff); /* Shiny effect */
       background-size: 200%;
@@ -37,10 +37,11 @@
       margin-bottom: 5px;
       display: inline-block; /* Ensure the background doesn't extend the full width */
       border: none; /* Remove background */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Drop shadow */
     }
-    h2 {
-      font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
-      font-size: 15px; /* Smaller font size for the second heading */
+    h2, h3 {
+      font-family: 'Press Start 2P', cursive; /* Use the same old-school computer font */
+      font-size: 20px; /* Font size for h2 and h3 */
       margin-top: 3px;
       margin-bottom: 5px;
       color: white; /* Change text color to white */
@@ -85,12 +86,14 @@
   <img src="fireplane.png" class="floating-image image1" />
   <img src="paperplane.png" class="floating-image image2" />
 
+  <h3>click here for AR experience</h3>
+
   <script>
     async function checkARCoreCompatibility() {
       const modelViewer = document.getElementById('model-viewer');
       const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
       if (!isARCoreSupported) {
-        modelViewer removeAttribute('ar');
+        modelViewer.removeAttribute('ar');
         modelViewer.removeAttribute('ar-modes');
         alert('Your device is not compatible with AR features. You can still view the 3D model.');
       }
