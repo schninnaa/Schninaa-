@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The masks</title>
+  <title>Cyber Space</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
@@ -78,19 +78,19 @@
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
-    .ar-button {
+    .ar-button-overlay {
       position: absolute;
-      width: 120px;
-      height: 120px;
       bottom: 10%;
       right: 10%;
-      opacity: 0;
+      width: 120px;
+      height: 120px;
+      background: transparent;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Crumbling Personas</h1>
+  <h1>Cyb3r 5paC3</h1>
   <h2>Model by @schninnaa</h2>
   <model-viewer 
     id="model-viewer"
@@ -110,7 +110,8 @@
   <a href="https://www.instagram.com/schninnaa/">
     <img src="bubble.png" class="floating-image image1" />
   </a>
-  <img src="bubble.png" class="floating-image image2 ar-button" onclick="document.getElementById('model-viewer').activateAR()" />
+  <img src="bubble.png" class="floating-image image2" />
+  <div class="ar-button-overlay" onclick="document.getElementById('model-viewer').activateAR()"></div>
 
   <script>
     async function checkARCoreCompatibility() {
