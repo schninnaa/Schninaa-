@@ -44,25 +44,7 @@
       width: 50px; /* Adjust size as needed */
       height: 50px; /* Adjust size as needed */
       pointer-events: none; /* Ensure they don't interfere with user interactions */
-      animation: float 5s infinite;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translate(0, 0);
-      }
-      25% {
-        transform: translate(100px, -100px);
-      }
-      50% {
-        transform: translate(200px, 0);
-      }
-      75% {
-        transform: translate(100px, 100px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
+      transition: transform 2s linear;
     }
   </style>
 </head>
@@ -86,7 +68,6 @@
   <!-- Add floating images -->
   <img src="bubble.png" class="floating-image" id="floating-image1" />
   <img src="bubble.png" class="floating-image" id="floating-image2" />
-  <img src="bubble.png" class="floating-image" id="floating-image3" />
 
   <script>
     async function checkARCoreCompatibility() {
@@ -101,8 +82,8 @@
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
 
     function getRandomPosition() {
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
+      const x = Math.random() * (window.innerWidth - 50);
+      const y = Math.random() * (window.innerHeight - 50);
       return { x, y };
     }
 
