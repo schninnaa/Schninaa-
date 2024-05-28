@@ -7,22 +7,36 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    model-viewer {
-      width: 100%; /* 100% of the parent's width */
-      height: 70vh; /* 70% of the viewport height */
-      display: block;
+    model-viewer-container {
+      position: relative;
+      width: 100%;
+      height: 70vh;
       margin: auto;
+      display: block;
     }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-image: url('window.png'); /* Set background image for model viewer */
+      background-size: cover; /* Cover the entire area */
+      background-repeat: no-repeat;
+      background-position: center; /* Center the background image */
+    }
+
     @media (max-width: 768px) {
-      model-viewer {
+      model-viewer-container {
         height: 50vh; /* Make the model viewer smaller on mobile devices */
       }
+
       .ar-button {
         display: none; /* Hide the AR button on mobile devices */
       }
     }
+
     body {
-      background-image: url('cyberbg.png'); /* Set custom background image */
+      background-image: url('cyberbg.png'); /* Set custom background image for body */
       background-size: cover; /* Ensure the image covers the entire background */
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -38,6 +52,7 @@
       flex-direction: column;
       justify-content: center;
     }
+
     h1 {
       font-family: 'Press Start 2P', cursive; /* Old-school computer font */
       font-size: 36px; /* Increase heading font size */
@@ -54,6 +69,7 @@
       display: inline-block; /* Ensure the background doesn't extend the full width */
       border: none; /* Remove background */
     }
+
     h2 {
       font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
       font-size: 15px; /* Smaller font size for the second heading */
@@ -61,23 +77,28 @@
       margin-bottom: 0; /* Set margin-bottom to 0 to reduce gap */
       color: white; /* Change text color to white */
     }
+
     .floating-image {
       position: absolute;
       width: 120px; /* Adjust size as needed */
       height: 120px; /* Adjust size as needed */
       animation: float 4s ease-in-out infinite;
     }
+
     .image1 { top: 10%; left: 10%; }
     .image2 { bottom: 10%; right: 10%; }
+
     @keyframes float {
       0% { transform: translateX(0); }
       50% { transform: translateX(15px); }
       100% { transform: translateX(0); }
     }
+
     @keyframes shine {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
+
     .ar-button-overlay {
       position: absolute;
       bottom: 10%;
@@ -92,19 +113,21 @@
 <body>
   <h1>Crumbling Personas</h1>
   <h2>Model by @schninnaa</h2>
-  <model-viewer 
-    id="model-viewer"
-    src="cd.glb"
-    ios-src="cd.usdz"
-    alt="Nina's 3D room"
-    ar
-    ar-modes="webxr scene-viewer quick-look" 
-    environment-image="neutral" 
-    auto-rotate
-    camera-controls
-    animation-name="CubeAction" 
-    animation-loop>
-  </model-viewer>
+  <div class="model-viewer-container">
+    <model-viewer 
+      id="model-viewer"
+      src="cd.glb"
+      ios-src="cd.usdz"
+      alt="Nina's 3D room"
+      ar
+      ar-modes="webxr scene-viewer quick-look" 
+      environment-image="neutral" 
+      auto-rotate
+      camera-controls
+      animation-name="CubeAction" 
+      animation-loop>
+    </model-viewer>
+  </div>
 
   <!-- Add floating images -->
   <a href="https://www.instagram.com/schninnaa/">
