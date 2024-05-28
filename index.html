@@ -24,11 +24,19 @@
     body {
       background-image: url('cyberbg.png'); /* Set custom background image */
       background-size: cover; /* Ensure the image covers the entire background */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       background-position: center; /* Center the background image */
       color: DarkOliveGreen; /* Change text color to Dark Olive Green */
       text-align: center; /* Center the text */
       font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
       font-size: 24px; /* Increase font size */
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Ensure the body takes up the full height of the viewport */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     h1 {
       font-family: 'Press Start 2P', cursive; /* Old-school computer font */
@@ -77,6 +85,7 @@
       bottom: 10%;
       right: 10%;
       opacity: 0;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -101,8 +110,7 @@
   <a href="https://www.instagram.com/schninnaa/">
     <img src="bubble.png" class="floating-image image1" />
   </a>
-  <img src="bubble.png" class="floating-image image2" />
-  <div class="ar-button" onclick="document.getElementById('model-viewer').activateAR()"></div>
+  <img src="bubble.png" class="floating-image image2 ar-button" onclick="document.getElementById('model-viewer').activateAR()" />
 
   <script>
     async function checkARCoreCompatibility() {
