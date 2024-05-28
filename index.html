@@ -15,41 +15,41 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      color: DarkOliveGreen; /* Change text color to Dark Olive Green */
-      font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
-      font-size: 24px; /* Increase font size */
-      text-align: center; /* Center the text */
-      background-image: url('shiny.png'); /* Set custom background image */
-      background-size: cover; /* Ensure the image covers the entire background */
-      background-position: center; /* Center the background image */
+      color: DarkOliveGreen;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 24px;
+      text-align: center;
+      background-image: url('shiny.png');
+      background-size: cover;
+      background-position: center;
     }
     .content {
       z-index: 1;
-      transform: translateY(-10%); /* Move content higher */
+      margin-top: -50px; /* Move content slightly higher */
     }
     h1 {
-      font-family: 'Press Start 2P', cursive; /* Old-school computer font */
-      font-size: 36px; /* Increase heading font size */
-      color: #fff; /* White text color */
-      background: linear-gradient(90deg, #fff, #e0e0e0, #fff); /* Shiny effect */
+      font-family: 'Press Start 2P', cursive;
+      font-size: 36px;
+      color: #fff;
+      background: linear-gradient(90deg, #fff, #e0e0e0, #fff);
       background-size: 200%;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       animation: shine 2s infinite linear;
-      padding: 10px; /* Padding inside the element */
+      padding: 10px;
       margin-top: 20px;
       margin-bottom: 5px;
-      display: inline-block; /* Ensure the background doesn't extend the full width */
-      border: none; /* Remove background */
+      display: inline-block;
+      border: none;
     }
-    h2 {
-      font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
-      font-size: 15px; /* Font size for the headings */
+    h2, h3 {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 15px;
       margin-top: 3px;
       margin-bottom: 5px;
-      color: #A9A9A9; /* Dark grey color */
-      background: linear-gradient(90deg, #A9A9A9, #696969, #A9A9A9); /* Shiny effect in dark grey */
+      color: #A9A9A9;
+      background: linear-gradient(90deg, #A9A9A9, #696969, #A9A9A9);
       background-size: 200%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -57,18 +57,33 @@
       animation: shine 2s infinite linear;
     }
     model-viewer {
-      width: 100%; /* 100% of the parent's width */
-      height: 50vh; /* 50% of the viewport height */
+      width: 100%;
+      height: 50vh;
       display: block;
       margin: auto;
-      display: none; /* Hide initially */
     }
     .floating-image {
       position: absolute;
       animation: float 4s ease-in-out infinite;
     }
-    .image1 { top: 10%; left: 10%; }
-    .image2 { bottom: 10%; right: 10%; }
+    .image1 { 
+      top: 10%; 
+      left: 10%; 
+    }
+    .image2 { 
+      bottom: 10%; 
+      right: 10%; 
+      width: 180px; /* Adjusted width */
+      height: 180px; /* Adjusted height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .image2 model-viewer {
+      position: absolute;
+      width: 100%; 
+      height: 100%; 
+    }
     @keyframes float {
       0% { transform: translateX(0); }
       50% { transform: translateX(15px); }
@@ -81,27 +96,15 @@
     /* Responsive design */
     @media (min-width: 768px) {
       .floating-image {
-        width: 180px; /* Larger size for desktop */
-        height: 180px; /* Larger size for desktop */
+        width: 180px;
+        height: 180px;
       }
     }
     @media (max-width: 767px) {
       .floating-image {
-        width: 100px; /* Smaller size for mobile */
-        height: 100px; /* Smaller size for mobile */
+        width: 100px;
+        height: 100px;
       }
-    }
-    .ar-button-image {
-      cursor: pointer;
-      width: 200px; /* Adjust the width as needed */
-      height: auto;
-      margin-top: 20px;
-    }
-    .link-button-image {
-      cursor: pointer;
-      width: 200px; /* Adjust the width as needed */
-      height: auto;
-      margin-top: 20px;
     }
   </style>
 </head>
@@ -109,32 +112,29 @@
   <div class="content">
     <h1>Crumbling Personas</h1>
     <h2>Model by @schninnaa</h2>
-
-    <!-- AR Viewer Image Button -->
-    <img src="mouse.png" class="ar-button-image" alt="AR Viewer Button" onclick="toggleARViewer()">
-
-    <model-viewer 
-      id="model-viewer"
-      src="maske1.glb"
-      ios-src="maske1.usdz"
-      alt="Nina's 3D room"
-      ar
-      ar-modes="webxr scene-viewer quick-look" 
-      environment-image="neutral" 
-      auto-rotate
-      camera-controls
-      animation-name="CubeAction" 
-      animation-loop>
-    </model-viewer>
-
+    
     <!-- Add floating images -->
-    <img src="bubble.png" class="floating-image image1" />
-    <img src="bubble.png" class="floating-image image2" />
-
-    <!-- New third text element replaced with an image link -->
     <a href="https://www.instagram.com/schninnaa/" target="_blank">
-      <img src="insta.png" class="link-button-image" alt="Instagram Link Button">
+      <img src="buuble.png" class="floating-image image1" />
     </a>
+    <div class="floating-image image2">
+      <model-viewer 
+        id="model-viewer"
+        src="maske1.glb"
+        ios-src="maske1.usdz"
+        alt="Nina's 3D room"
+        ar
+        ar-modes="webxr scene-viewer quick-look" 
+        environment-image="neutral" 
+        auto-rotate
+        camera-controls
+        animation-name="CubeAction" 
+        animation-loop>
+      </model-viewer>
+    </div>
+
+    <!-- New third text element -->
+    <h3>Another text example</h3>
   </div>
 
   <script>
@@ -148,15 +148,6 @@
       }
     }
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-
-    function toggleARViewer() {
-      const modelViewer = document.getElementById('model-viewer');
-      if (modelViewer.style.display === 'none') {
-        modelViewer.style.display = 'block';
-      } else {
-        modelViewer.style.display = 'none';
-      }
-    }
   </script>
 </body>
 </html>
