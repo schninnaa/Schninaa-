@@ -83,7 +83,7 @@
 
     function getRandomPosition() {
       const x = Math.random() * (window.innerWidth - 50);
-      const y = Math.random() * (window.innerHeight - 50);
+      const y = Math.random() * (window.innerHeight / 2 - 50); // Limit to top half of the screen
       return { x, y };
     }
 
