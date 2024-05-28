@@ -13,10 +13,10 @@
       margin: auto;
     }
     body {
-      background-image: url('swirl.jpg'); /* Set custom background image */
+      background-image: url('metal.jpg'); /* Set custom background image */
       background-size: cover; /* Ensure the image covers the entire background */
       background-position: center; /* Center the background image */
-      color: DarkOliveGreen; /* Change text color to Dark Olive Green */
+      color: SlateGray; /* Change text color to Dark Olive Green */
       text-align: center; /* Center the text */
       font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
       font-size: 24px; /* Increase font size */
@@ -39,13 +39,16 @@
       margin-bottom: 5px;
       color: white; /* Change text color to white */
     }
-    .floating-image {
+    .static-image {
       position: absolute;
       width: 50px; /* Adjust size as needed */
       height: 50px; /* Adjust size as needed */
       pointer-events: none; /* Ensure they don't interfere with user interactions */
-      transition: transform 5s linear; /* Increase the duration to 5 seconds */
     }
+    .image1 { top: 10%; left: 10%; }
+    .image2 { top: 20%; right: 10%; }
+    .image3 { bottom: 20%; left: 15%; }
+    .image4 { bottom: 10%; right: 20%; }
   </style>
 </head>
 <body>
@@ -65,10 +68,11 @@
     animation-loop>
   </model-viewer>
 
-  <!-- Add floating images -->
-  <img src="bubble.png" class="floating-image" id="floating-image1" />
-  <img src="bubble.png" class="floating-image" id="floating-image2" />
-  <img src="bubble.png" class="floating-image" id="floating-image3" />
+  <!-- Add static images -->
+  <img src="bubble.png" class="static-image image1" />
+  <img src="bubble.png" class="static-image image2" />
+  <img src="bubble.png" class="static-image image3" />
+  <img src="bubble.png" class="static-image image4" />
 
   <script>
     async function checkARCoreCompatibility() {
@@ -81,22 +85,6 @@
       }
     }
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-
-    function getRandomPosition() {
-      const x = Math.random() * (window.innerWidth - 50);
-      const y = Math.random() * (window.innerHeight - 50);
-      return { x, y };
-    }
-
-    function animateImage(image) {
-      const { x, y } = getRandomPosition();
-      image.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    const images = document.querySelectorAll('.floating-image');
-    images.forEach(image => {
-      setInterval(() => animateImage(image), 5000); // Increase interval to match the transition duration
-    });
   </script>
 </body>
 </html>
