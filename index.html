@@ -68,6 +68,7 @@
   <!-- Add floating images -->
   <img src="bubble.png" class="floating-image" id="floating-image1" />
   <img src="bubble.png" class="floating-image" id="floating-image2" />
+  <img src="bubble.png" class="floating-image" id="floating-image3" />
 
   <script>
     async function checkARCoreCompatibility() {
@@ -83,7 +84,7 @@
 
     function getRandomPosition() {
       const x = Math.random() * (window.innerWidth - 50);
-      const y = Math.random() * (window.innerHeight / 2 - 50); // Limit to top half of the screen
+      const y = Math.random() * (window.innerHeight - 50);
       return { x, y };
     }
 
