@@ -44,7 +44,7 @@
       width: 50px; /* Adjust size as needed */
       height: 50px; /* Adjust size as needed */
       pointer-events: none; /* Ensure they don't interfere with user interactions */
-      transition: transform 2s linear;
+      transition: transform 5s linear; /* Increase the duration to 5 seconds */
     }
   </style>
 </head>
@@ -66,9 +66,9 @@
   </model-viewer>
 
   <!-- Add floating images -->
-  <img src="bubble.png" class="floating-image" id="floating-image1" />
-  <img src="bubble.png" class="floating-image" id="floating-image2" />
-  <img src="bubble.png" class="floating-image" id="floating-image3" />
+  <img src="image1.png" class="floating-image" id="floating-image1" />
+  <img src="image2.png" class="floating-image" id="floating-image2" />
+  <img src="image3.png" class="floating-image" id="floating-image3" />
 
   <script>
     async function checkARCoreCompatibility() {
@@ -95,7 +95,7 @@
 
     const images = document.querySelectorAll('.floating-image');
     images.forEach(image => {
-      setInterval(() => animateImage(image), 2000);
+      setInterval(() => animateImage(image), 5000); // Increase interval to match the transition duration
     });
   </script>
 </body>
