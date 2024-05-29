@@ -10,7 +10,7 @@
     .model-viewer-container {
       position: relative;
       width: 100%;
-      height: 70vh;
+      height: var(--model-viewer-height, 70vh); /* Make height customizable */
       margin: auto;
       display: block;
       /* background-image: url('window.png'); */ /* Removed background image */
@@ -57,7 +57,7 @@
       font-family: 'Press Start 2P', cursive;
       font-size: 36px;
       color: #fff;
-      background: linear-gradient(90deg, #fff, #e0e0e0, #fff);
+      background: linear-gradient(90deg, #b0c4de, #dcdcdc, #b0c4de);
       background-size: 200%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -67,10 +67,8 @@
       margin-bottom: 5px;
       display: inline-block;
       border: none;
-      overflow: hidden; /* Hide the text overflow */
-      white-space: nowrap; /* Prevent text wrapping */
-      width: 0; /* Start with zero width */
-      animation: typing 3.5s steps(30, end) forwards; /* Typewriter effect */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add drop shadow */
+      animation: shine 2s infinite linear; /* Add shiny effect */
     }
 
     .floating-image {
@@ -89,9 +87,9 @@
       100% { transform: translateX(0); }
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    @keyframes shine {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .ar-button-overlay {
@@ -107,7 +105,7 @@
 </head>
 <body>
   <h1>Cyb3r 5pac3</h1>
-  <div class="model-viewer-container">
+  <div class="model-viewer-container" style="--model-viewer-height: 70vh;"> <!-- Customize height here -->
     <model-viewer 
       id="model-viewer"
       src="boom.glb"
