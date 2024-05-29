@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The masks</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime&display=swap" rel="stylesheet">
   <style>
     .model-viewer-container {
       position: relative;
@@ -41,7 +41,7 @@
       background-attachment: fixed;
       background-position: center;
       color: DarkOliveGreen;
-      text-align: center;
+      text-align: right; /* Right-align text */
       font-family: 'Arial Black', sans-serif;
       font-size: 24px;
       margin: 0;
@@ -50,7 +50,8 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start; /* Align items to the start */
-      align-items: center; /* Center items horizontally */
+      align-items: flex-end; /* Align items to the end horizontally */
+      padding-right: 20px; /* Add some padding to the right */
     }
 
     h1 {
@@ -63,10 +64,18 @@
       -webkit-background-clip: text;
       padding: 10px;
       margin-top: 20px; /* Reduced margin top */
-      margin-bottom: 10px; /* Reduced margin bottom */
+      margin-bottom: 5px; /* Reduced margin bottom */
       display: inline-block;
       border: none;
       animation: shine 2s infinite linear; /* Add shiny effect */
+    }
+
+    h2 {
+      font-family: 'Courier Prime', monospace; /* Typewriter font */
+      font-size: 18px;
+      color: DarkOliveGreen;
+      margin: 0;
+      padding: 5px 10px;
     }
 
     .floating-image {
@@ -103,6 +112,7 @@
 </head>
 <body>
   <h1>Cyb3r 5pac3</h1>
+  <h2>✰sit down and get cozy</h2>
   <div class="model-viewer-container" style="--model-viewer-height: 70vh;"> <!-- Customize height here -->
     <model-viewer 
       id="model-viewer"
