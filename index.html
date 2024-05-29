@@ -1,16 +1,16 @@
-v<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The masks</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     .model-viewer-container {
       position: relative;
       width: 100%;
-      height: var(--model-viewer-height, 80vh); /* Make height customizable */
+      height: var(--model-viewer-height, 70vh); /* Make height customizable */
       margin: auto;
       display: block;
       background-size: cover; 
@@ -20,13 +20,13 @@ v<!DOCTYPE html>
 
     model-viewer {
       width: 100%;
-      height: 10%;
+      height: 100%;
       display: block;
     }
 
     @media (max-width: 768px) {
       .model-viewer-container {
-        height: 70vh;
+        height: 50vh;
       }
 
       .ar-button {
@@ -35,52 +35,50 @@ v<!DOCTYPE html>
     }
 
     body {
-      background-image: url('blue2.png');
+      background-image: url('blue1.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
       color: DarkOliveGreen;
-      text-align: right; /* Right-align text */
+      text-align: center;
       font-family: 'Arial Black', sans-serif;
-      font-size: 30px;
+      font-size: 24px;
       margin: 0;
       padding: 0;
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* Align items to the start */
-      align-items: flex-end; /* Align items to the end horizontally */
-      padding-right: 20px; /* Add some padding to the right */
+      justify-content: center;
     }
 
     h1 {
       font-family: 'Press Start 2P', cursive;
       font-size: 36px;
-      color: transparent; /* Transparent text */
-      background: linear-gradient(90deg, #fff, #e0e0e0, #fff);
-      background-size: 200%;
-      background-clip: text;
-      -webkit-background-clip: text;
+      color: #b0c4de; /* Solid color for the text */
+      position: relative;
       padding: 10px;
-      margin-top: 40px; /* Reduced margin top */
-      margin-bottom: 5px; /* Reduced margin bottom */
+      margin-top: 30px;
+      margin-bottom: 5px;
       display: inline-block;
       border: none;
-      animation: shine 2s infinite linear; /* Add shiny effect */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add drop shadow */
     }
 
-    h2 {
-      font-family: 'Courier Prime', monospace; /* Typewriter font */
-      font-size: 18px;
-      color: white;
-      margin: 0;
-      padding: 5px 10px;
-      margin-top: 5px; /* Reduced margin top */
-      margin-bottom: 5px; /* Reduced margin bottom */
-      display: inline-block;
-      border: none;
-      animation: shine 2s infinite linear; /* Add shiny effect */
+    h1::before {
+      content: 'Cyb3r 5pac3';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #fff, #e0e0e0, #fff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 2s infinite linear;
+      z-index: -1; /* Move the gradient behind the text */
     }
 
     .floating-image {
@@ -90,8 +88,8 @@ v<!DOCTYPE html>
       animation: float 4s ease-in-out infinite;
     }
 
-    .image1 { top: 10%; left: 5%; }
-    .image2 { bottom: 3%; right: 10%; }
+    .image1 { top: 20%; left: 10%; }
+    .image2 { bottom: 10%; right: 10%; }
 
     @keyframes float {
       0% { transform: translateX(0); }
@@ -117,8 +115,7 @@ v<!DOCTYPE html>
 </head>
 <body>
   <h1>Cyb3r 5pac3</h1>
-  <h2>✰sit down and get cozy</h2>
-  <div class="model-viewer-container" style="--model-viewer-height: 40vh;"> <!-- Customize height here -->
+  <div class="model-viewer-container" style="--model-viewer-height: 70vh;"> <!-- Customize height here -->
     <model-viewer 
       id="model-viewer"
       src="boom.glb"
