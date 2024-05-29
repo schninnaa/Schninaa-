@@ -70,14 +70,6 @@
       border: none; /* Remove background */
     }
 
-    h2 {
-      font-family: 'Arial Black', sans-serif; /* Ensure second heading uses Arial Black font */
-      font-size: 15px; /* Smaller font size for the second heading */
-      margin-top: 5px; /* Reduced margin-top */
-      margin-bottom: 0; /* Set margin-bottom to 0 to reduce gap */
-      color: white; /* Change text color to white */
-    }
-
     .floating-image {
       position: absolute;
       width: 120px; /* Adjust size as needed */
@@ -85,7 +77,7 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    .image1 { top: 10%; left: 10%; }
+    .image1 { top: 20%; left: 10%; } /* Adjusted the position to be a little lower */
     .image2 { bottom: 10%; right: 10%; }
 
     @keyframes float {
@@ -112,7 +104,6 @@
 </head>
 <body>
   <h1>Cyb3r 5pac3</h1>
-  <h2>Model by @schninnaa</h2>
   <div class="model-viewer-container">
     <model-viewer 
       id="model-viewer"
@@ -150,3 +141,4 @@
   </script>
 </body>
 </html>
+
