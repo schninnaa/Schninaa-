@@ -1,3 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The masks</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    .model-viewer-container {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      margin: auto;
+      display: block;
+      background-image: url('window.png'); /* Set background image for model viewer */
+      background-size: cover; /* Cover the entire area */
+      background-repeat: no-repeat;
+      background-position: center; /* Center the background image */
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .model-viewer-container {
+        height: 50vh; /* Make the model viewer smaller on mobile devices */
+      }
+
+      .ar-button {
+        display: none; /* Hide the AR button on mobile devices */
+      }
+    }
+
+    body {
+      background-image: url('sky.jpg'); /* Set custom background image for body */
+      background-size: cover; /* Ensure the image covers the entire background */
+      background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center; /* Center the background image */
       color: DarkOliveGreen; /* Change text color to Dark Olive Green */
@@ -16,8 +57,9 @@
       font-family: 'Press Start 2P', cursive; /* Old-school computer font */
       font-size: 36px; /* Increase heading font size */
       color: #fff; /* White text color */
-      background: linear-gradient(135deg, #e6e6e6 25%, #ccc 25%, #ccc 50%, #e6e6e6 50%, #e6e6e6 75%, #ccc 75%, #ccc 100%);
-      background-size: 28.28px 28.28px; /* Creates a metallic checkerboard pattern */
+      background: linear-gradient(90deg, #fff, #e0e0e0, #fff); /* Shiny effect */
+      background-size: 200%;
+      background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       animation: shine 2s infinite linear;
@@ -26,7 +68,6 @@
       margin-bottom: 5px; /* Reduced margin-bottom */
       display: inline-block; /* Ensure the background doesn't extend the full width */
       border: none; /* Remove background */
-      text-shadow: 1px 1px 2px #000; /* Add a subtle shadow for depth */
     }
 
     .floating-image {
@@ -81,9 +122,9 @@
 
   <!-- Add floating images -->
   <a href="https://www.instagram.com/schninnaa/">
-    <img src="bubble.png" class="floating-image image1" />
+    <img src="sstar2.png" class="floating-image image1" />
   </a>
-  <img src="bubble.png" class="floating-image image2" />
+  <img src="sstar1.png" class="floating-image image2" />
   <div class="ar-button-overlay" onclick="document.getElementById('model-viewer').activateAR()"></div>
 
   <script>
