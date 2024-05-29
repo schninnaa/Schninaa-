@@ -13,10 +13,10 @@
       height: 70vh;
       margin: auto;
       display: block;
-      background-image: url('window.png'); /* Set background image for model viewer */
-      background-size: cover; /* Cover the entire area */
+      /* background-image: url('window.png'); */ /* Removed background image */
+      background-size: cover; 
       background-repeat: no-repeat;
-      background-position: center; /* Center the background image */
+      background-position: center; 
     }
 
     model-viewer {
@@ -27,57 +27,60 @@
 
     @media (max-width: 768px) {
       .model-viewer-container {
-        height: 50vh; /* Make the model viewer smaller on mobile devices */
+        height: 50vh;
       }
 
       .ar-button {
-        display: none; /* Hide the AR button on mobile devices */
+        display: none;
       }
     }
 
     body {
-      background-image: url('blue3.png'); /* Set custom background image for body */
-      background-size: cover; /* Ensure the image covers the entire background */
+      background-image: url('blue3.png');
+      background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      background-position: center; /* Center the background image */
-      color: DarkOliveGreen; /* Change text color to Dark Olive Green */
-      text-align: center; /* Center the text */
-      font-family: 'Arial Black', sans-serif; /* Change font family to Arial Black */
-      font-size: 24px; /* Increase font size */
+      background-position: center;
+      color: DarkOliveGreen;
+      text-align: center;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 24px;
       margin: 0;
       padding: 0;
-      height: 100vh; /* Ensure the body takes up the full height of the viewport */
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     h1 {
-      font-family: 'Press Start 2P', cursive; /* Old-school computer font */
-      font-size: 36px; /* Increase heading font size */
-      color: #fff; /* White text color */
-      background: linear-gradient(90deg, #fff, #e0e0e0, #fff); /* Shiny effect */
+      font-family: 'Press Start 2P', cursive;
+      font-size: 36px;
+      color: #fff;
+      background: linear-gradient(90deg, #fff, #e0e0e0, #fff);
       background-size: 200%;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      animation: shine 2s infinite linear;
-      padding: 10px; /* Padding inside the element */
-      margin-top: 30px; /* Increased margin-top */
-      margin-bottom: 5px; /* Reduced margin-bottom */
-      display: inline-block; /* Ensure the background doesn't extend the full width */
-      border: none; /* Remove background */
+      padding: 10px;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      display: inline-block;
+      border: none;
+      overflow: hidden; /* Hide the text overflow */
+      white-space: nowrap; /* Prevent text wrapping */
+      width: 0; /* Start with zero width */
+      animation: typing 3.5s steps(30, end) forwards; /* Typewriter effect */
     }
 
     .floating-image {
       position: absolute;
-      width: 120px; /* Adjust size as needed */
-      height: 120px; /* Adjust size as needed */
+      width: 120px;
+      height: 120px;
       animation: float 4s ease-in-out infinite;
     }
 
-    .image1 { top: 20%; left: 10%; } /* Adjusted the position to be a little lower */
+    .image1 { top: 20%; left: 10%; }
     .image2 { bottom: 10%; right: 10%; }
 
     @keyframes float {
@@ -86,9 +89,9 @@
       100% { transform: translateX(0); }
     }
 
-    @keyframes shine {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     .ar-button-overlay {
@@ -120,7 +123,6 @@
     </model-viewer>
   </div>
 
-  <!-- Add floating images -->
   <a href="https://www.instagram.com/schninnaa/">
     <img src="sstar2.png" class="floating-image image1" />
   </a>
