@@ -49,7 +49,8 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Align items to the start */
+      align-items: center; /* Center items horizontally */
     }
 
     h1 {
@@ -61,8 +62,8 @@
       background-clip: text;
       -webkit-background-clip: text;
       padding: 10px;
-      margin-top: 30px;
-      margin-bottom: 5px;
+      margin-top: 20px; /* Reduced margin top */
+      margin-bottom: 10px; /* Reduced margin bottom */
       display: inline-block;
       border: none;
       animation: shine 2s infinite linear; /* Add shiny effect */
@@ -102,7 +103,7 @@
 </head>
 <body>
   <h1>Cyb3r 5pac3</h1>
-  <div class="model-viewer-container" style="--model-viewer-height: 90vh;"> <!-- Customize height here -->
+  <div class="model-viewer-container" style="--model-viewer-height: 70vh;"> <!-- Customize height here -->
     <model-viewer 
       id="model-viewer"
       src="boom.glb"
